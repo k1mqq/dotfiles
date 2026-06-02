@@ -136,6 +136,9 @@ hl.config({
     }
 })
 
+hl.gesture({ fingers = 3, direction = "horizontal", action = "workspace" })
+hl.gesture({fingers = 3, direction = "up", action = "special", workspace_name = "magic"})
+
 -- keybinds
 local mainMod = "SUPER"
 hl.bind(mainMod .. " + T", hl.dsp.exec_cmd(terminal))
