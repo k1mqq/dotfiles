@@ -183,6 +183,10 @@ local special_window = {
     "discord",
     "vivaldi-cinhimbnkkaeohfgghhklpknlkffjgod-Default",
 }
+local editor = {
+    "code",
+    "dev.zed.Zed",
+}
 
 for _, class_name in ipairs(special_window) do
     hl.window_rule({
@@ -192,13 +196,16 @@ for _, class_name in ipairs(special_window) do
         workspace = "special:magic",
     })
 end
-hl.window_rule({
-    name = "vscode no transparent",
-    match = {
-        class = "code",
-    },
-    opacity = "1 override",
-})
+
+for _, class_name in ipairs(editor) do
+    hl.window_rule({
+        name = "editor no transparent",
+        match = {
+            class = class_name,
+        },
+        opacity = "1 override",
+    })
+end
 hl.window_rule({
     -- Fix some dragging issues with XWayland
     name  = "fix-xwayland-drags",
