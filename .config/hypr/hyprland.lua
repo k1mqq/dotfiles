@@ -22,7 +22,8 @@ local menu = "walker"
 hl.on("hyprland.start", function()
     -- hl.exec_cmd("elephant")
     -- hl.exec_cmd("wayle panel start")
-    hl.exec_cmd("qs -c noctalia-shell")
+    -- hl.exec_cmd("qs -c noctalia-shell")
+    hl.exec_cmd("noctalia")
     hl.exec_cmd("fcitx5")
 
 end)
@@ -30,6 +31,8 @@ end)
 -- misc
 hl.env("HYPRCURSOR_SIZE", "20")
 hl.env("XCURSOR_SIZE", "20")
+
+hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 
 hl.config({
     misc = {
@@ -149,15 +152,16 @@ local mainMod = "SUPER"
 hl.bind(mainMod .. " + T", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + C", hl.dsp.window.close())
-hl.bind(mainMod .. " + V", hl.dsp.window.float({action = "toggle"}))
+hl.bind(mainMod .. " + F", hl.dsp.window.float({action = "toggle"}))
+hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("noctalia msg panel-toggle clipboard"))
 -- hl.bind(mainMod .. " + Space", hl.dsp.exec_cmd(menu))
-hl.bind(mainMod .. " + Space", hl.dsp.exec_cmd("qs -c noctalia-shell ipc call launcher toggle"))
+hl.bind(mainMod .. " + Space", hl.dsp.exec_cmd("noctalia msg panel-toggle launcher"))
 hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("vivaldi"))
 
 hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special("magic"))
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
 
-hl.bind(mainMod .. " + CTRL + S", hl.dsp.exec_cmd('grim -g "$(slurp)" - | swappy -f -'))
+hl.bind(mainMod .. " + CTRL + S", hl.dsp.exec_cmd('noctalia msg screenshot-region'))
 
 -- move window with vimkeys
 hl.bind(mainMod .. " + ALT + H", hl.dsp.window.move({ direction = "left"}))
@@ -180,9 +184,14 @@ hl.bind(mainMod .. " + SHIFT + L", hl.dsp.window.move({ workspace = "+1"}))
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true})
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
-hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e-1" }))
-hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e+1" }))
+--hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e-1" }))
+--hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e+1" }))
 
+-- fox65 slider to scroll(require wlrctl)
+hl.bind(mainMod .. " + XF86AudioRaiseVolume", hl.dsp.exec_cmd("ydotool mousemove --wheel -- 0 1"))
+hl.bind(mainMod .. " + XF86AudioLowerVolume", hl.dsp.exec_cmd("ydotool mousemove --wheel -- 0 -1"))
+hl.bind("ALT + XF86AudioRaiseVolume", hl.dsp.exec_cmd("ydotool mousemove --wheel -- 0 1"))
+hl.bind("ALT + XF86AudioLowerVolume", hl.dsp.exec_cmd("ydotool mousemove --wheel -- 0 -1"))
 -- window rule
 local special_window = {
     "discord",
