@@ -2,3 +2,6 @@ command = fish
 
 font-family = JetBrains Mono
 font-family = Noto Sans CJK JP
+theme = noctalia
+
+background-opacity = 0.7
