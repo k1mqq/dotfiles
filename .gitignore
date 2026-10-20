@@ -1,0 +1,15 @@
+/*
+!/.gitignore
+!/fish/
+!/ghostty/
+!/hypr/
+!/noctalia/
+!/nvim/
+!/yazi/
+
+/fish/fish_variables
+/ghostty/themes/
+/hypr/noctalia.lua
+/hypr/local.lua
+/noctalia/colors.json
+/nvim/lua/matugen.lua
