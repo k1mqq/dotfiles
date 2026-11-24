@@ -6,12 +6,12 @@ hl.monitor({
     scale = 1.0,
 })
 
-hl.monitor({
-    output = "DP-1",
-    mode = "1920x1080@144",
-    position = "auto",
-    scale = 1.0,
-})
+-- hl.monitor({
+--     output = "DP-1",
+--     mode = "1920x1080@144",
+--     position = "auto",
+--     scale = 1.0,
+-- })
 
 -- programs
 local terminal = "ghostty"
@@ -81,6 +81,7 @@ hl.config({
             input_methods = true,
             size = 8,
             passes = 2,
+            -- variant = "water",
         },
 
         shadow = {
@@ -165,6 +166,7 @@ hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + C", hl.dsp.window.close())
 hl.bind(mainMod .. " + F", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("noctalia msg panel-toggle clipboard"))
+hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("noctalia msg panel-toggle noctalia/notes:panel"))
 -- hl.bind(mainMod .. " + Space", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + Space", hl.dsp.exec_cmd("noctalia msg panel-toggle launcher"))
 hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("vivaldi"))
